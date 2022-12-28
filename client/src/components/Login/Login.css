@@ -1,0 +1,48 @@
+.login-form {
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.form-name,
+.form-password,
+.form-button,
+.form-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  height: 2rem;
+  margin: 2rem auto;
+  border: 1px solid rgb(215, 213, 213);
+  padding: 0.5rem;
+}
+
+.form-button {
+  background-color: salmon;
+  border: none;
+  border-radius: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  margin: auto;
+  padding: 1.3rem;
+  width: 53%;
+}
+
+.form-button:hover {
+  cursor: pointer;
+  background-color: rgb(250, 51, 51);
+}
+
+.guest {
+  width: 50%;
+  padding: 1rem;
+  background-color: rgba(249, 45, 45, 0.1);
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  color: rgba(255, 0, 0, 0.534);
+}
