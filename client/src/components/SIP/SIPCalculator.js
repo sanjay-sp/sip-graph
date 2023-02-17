@@ -44,18 +44,21 @@ const SIPCalculator = () => {
 
   const calculateSIP = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/calculate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        p: principal,
-        i: returnRate / 100 / 12,
-        n: months,
-        r: returnRate,
-      }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/calculate`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          p: principal,
+          i: returnRate / 100 / 12,
+          n: months,
+          r: returnRate,
+        }),
+      }
+    );
     const sip = await res.json();
     console.log(sip);
     const { return_amt, invested_amount } = sip;
