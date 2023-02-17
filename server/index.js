@@ -3,6 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const path = require("path");
+require("dotenv").config();
 
 const Register = require("./model/register");
 const { json } = require("express");
@@ -14,7 +16,7 @@ app.use(cors());
 
 mongoose.set("strictQuery", false);
 mongoose.connect(
-  "mongodb://localhost:27017/interviewTask",
+  process.env.MONGO_URI,
   () => {
     console.log("Connected to MongoDB");
   },
@@ -74,6 +76,13 @@ app.post("/api/calculate", async (req, res) => {
   });
 });
 
-app.listen("5000", () => {
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname), "client", "build", "index.html");
+  });
+}
+
+app.listen(process.env.PORT || 5000, () => {
   console.log("Connected at PORT 5000");
 });

@@ -55,7 +55,9 @@ function Login() {
           Login
         </button>
       </form>
-      <div className="guest">Guest login - email: guest@a.com pwd: guest</div>
+      <div className="guest">
+        Guest login - Email: guest@a.com Password: guest
+      </div>
     </div>
   );
 }
